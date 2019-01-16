@@ -38,6 +38,20 @@ If you have installed Docker, then just type : ```docker run --rm --net=host lan
 
 After you have get Docker image and run it, to open GUI and go into fast-data-dev environment visit : ```  http://localhost:3030```
 
+### For Mac and Windows
+
+**!!! Important !!!**
+
+On Mac and on widows ```--net=host``` parameter might not work. In that case, you should get an imae and start it in Docker with another command:
+
+```docker run --rm -it -p 3181:3181 -p 3040:3040 -p 7081:7081 -p 7082:7082 -p 7083:7083 -p 7092:7092 -e ZK_PORT=3181 -e WEB_PORT=3040 -e REGISTRY_PORT=8081 -e REST_PORT=7082 -e CONNECT_PORT=7083 -e BROKER_PORT=7092 -e ADV_HOST=127.0.0.1 landoop/fast-data-dev```
+
+Then go into fast-data-dev environment like this : ```  http://localhost:3040```
+
+Here is the explanation of this problem and the solution [Zookeeper would not start on Mac](https://github.com/Landoop/fast-data-dev/issues/77).
+
+For Mac especially, you might also want to inrease memory for Docker : [how to ncrease docker-machine memory for Mac](https://stackoverflow.com/questions/32834082/how-to-increase-docker-machine-memory-mac/39720010#39720010)
+
 ## Kafka CLI hands-on
 
 Here is a series of exercises to try some common Kafka operations by using CLI (command line interface).

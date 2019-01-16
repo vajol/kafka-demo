@@ -42,11 +42,15 @@ After you have get Docker image and run it, to open GUI and go into fast-data-de
 
 **!!! Important !!!**
 
-On Mac and on widows ```--net=host``` parameter might not work. In that case, you should get an imae and start it in Docker with another command:
+On Mac and on widows ```--net=host``` parameter might not work. In that case, you should get an image and start it in Docker with another command:
 
-```docker run --rm -it -p 3181:3181 -p 3040:3040 -p 7081:7081 -p 7082:7082 -p 7083:7083 -p 7092:7092 -e ZK_PORT=3181 -e WEB_PORT=3040 -e REGISTRY_PORT=8081 -e REST_PORT=7082 -e CONNECT_PORT=7083 -e BROKER_PORT=7092 -e ADV_HOST=127.0.0.1 landoop/fast-data-dev```
+```docker run --rm -p 3030:3030 -p 9092:9092 -p 8081:8081 -p 8083:8083 -p 8082:8082 -p 2181:2181 landoop/fast-data-dev```
 
-Then go into fast-data-dev environment like this : ```  http://localhost:3040```
+or alternatively:
+
+```docker run --rm -it -p 2181:2181 -p 3030:3030 -p 8081:8081 -p 8082:8082 -p 8083:8083 -p 9092:9092 -e ZK_PORT=2181 -e WEB_PORT=3030 -e REGISTRY_PORT=8081 -e REST_PORT=8082 -e CONNECT_PORT=8083 -e BROKER_PORT=9092 -e ADV_HOST=127.0.0.1 landoop/fast-data-dev```
+
+Then to go into fast-data-dev environment use this link : ```  http://localhost:3030```
 
 Here is the explanation of this problem and the solution [Zookeeper would not start on Mac](https://github.com/Landoop/fast-data-dev/issues/77).
 
@@ -55,6 +59,8 @@ For Mac especially, you might also want to inrease memory for Docker : [how to n
 ## Kafka CLI hands-on
 
 Here is a series of exercises to try some common Kafka operations by using CLI (command line interface).
+
+To make it possible to run commands directly to Kafka in docker, consider installing Kafka locally also. Find the instructions how to do it in this section below : "**Kafka local installation**".  
 
 ### Create a new Kafka topic
 

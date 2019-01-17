@@ -60,7 +60,16 @@ For Mac especially, you might also want to inrease memory for Docker : [how to n
 
 Here is a series of exercises to try some common Kafka operations by using CLI (command line interface).
 
-To make it possible to run commands directly to Kafka in docker, consider installing Kafka locally also. Find the instructions how to do it in this section below : "**Kafka local installation**".  
+To make it possible to run Kafka commands there are threee options you can choose from :
+
+ 1. You can "bash" into running Landoop Docker image: 
+    - First run this command in a terminal to find image name : ```  docker ps```
+    - Then "bash" into image by typing: ```docker exec -it <image name> /bin/bash```
+    - And you are set to go and run Kafka commands like this for example : ```kafka-topics --zookeeper 127.0.0.1:2181 --list``` - notice that you do not need **".sh"** at the end if you run commands like this.
+
+ 2. Run Kafka commands from your terminal through Docker. Here is one example : ```docker exec -it <image name> bash /opt/landoop/kafka/bin/kafka-topics --zookeeper 127.0.0.1:2181 --list```
+
+ 3. Or consider installing Kafka client. Find the instructions how to do it in this section below : "**Kafka local installation**".  
 
 ### Create a new Kafka topic
 
